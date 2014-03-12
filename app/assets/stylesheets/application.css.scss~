@@ -1,0 +1,46 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree
+ *= require_jquery.ui.all .
+ */
+@import 'bootstrap';
+$theBlue: #428BCA;
+#header {
+	#back-button {	background: inherit;	border: medium none;	color: #FFFFFF;
+ 									display: block;	font-size: 21px;	padding: 10px;	
+									border-radius: 0;	border-right: solid 1px gray;
+	}
+	.navbar-brand {	margin-left: 60px;	font-weight: 800;	color: white;
+		&:hover {	color: $theBlue;
+		}
+	}
+}
+
+#search {	margin: 0 auto;	width: 300px;
+	label {	display: block;
+	}
+	.form-control {	display: inline-block;	width: auto;
+	}
+	.ui-helper-hidden-accessible {	display: none;
+	}
+}
+.ui-menu {	background: white;	border: 1px solid #CACACA;	max-height: 200px;
+						margin: 0;	overflow: scroll;	padding: 0;	list-style: none;
+	.ui-menu-item {	
+		&:hover {	background: #CACACA;
+		}
+		.ui-corner-all {	color: black;	margin: 1px 5px;
+			&:hover {	text-decoration: none;	
+			}
+		}
+	}
+}

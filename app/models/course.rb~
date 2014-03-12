@@ -1,0 +1,5 @@
+class Course < ActiveRecord::Base
+	def self.search(course_name)
+		
+	end
+end

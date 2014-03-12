@@ -1,0 +1,19 @@
+<div class="container jumbotron">
+	<h2><%= @course.subject + ' ' + @course.number %> <span class="small">Section #<%= @course.section %></span></h2>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h2 class="panel-title">Textbooks</h2>
+		</div>
+		<div class="panel-body">
+		</div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading"><strong>Courses</strong></div>
+		<% @courses.each do |course| %>
+			<div class="panel-body">
+				<%= link_to course.subject + ' ' + course.number + ' Sec. ' + course.section, course_path(course) %>
+			</div>
+		<% end %> 
+	</div>
+</div>
+

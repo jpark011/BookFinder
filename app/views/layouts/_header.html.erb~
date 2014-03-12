@@ -1,0 +1,8 @@
+<header id="header" class="navbar navbar-inverse">
+	<div class="container">
+			<button id="back-button" class="btn btn-default pull-left">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</button>
+			<%= link_to "Book Finder", root_path, class: "navbar-brand" %>
+		</div>
+</header>
