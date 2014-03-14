@@ -1,0 +1,9 @@
+<ul>
+	<% @books.each do |book| %>
+		<li>
+			<h3><%= book.title + ' by ' + book.author %></strong></h3>
+			<h2><%= book.price.to_f %></h2>
+			<h3><%= book.required %></h3> 
+		</li>
+	<% end %>
+</ul>

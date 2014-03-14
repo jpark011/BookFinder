@@ -5,15 +5,67 @@
 			<h2 class="panel-title">Textbooks</h2>
 		</div>
 		<div class="panel-body">
+			<ul id="textbooks">
+			<% # Backbone.js view comes here %>
+			</ul>
 		</div>
 	</div>
-	<div class="panel panel-primary">
-		<div class="panel-heading"><strong>Courses</strong></div>
-		<% @courses.each do |course| %>
-			<div class="panel-body">
-				<%= link_to course.subject + ' ' + course.number + ' Sec. ' + course.section, course_path(course) %>
-			</div>
-		<% end %> 
-	</div>
 </div>
+
+<%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js" %>
+<%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js" %>
+
+<script>
+	var Book = Backbone.Model.extend({
+		defaults: {
+			title: "",
+			author: "",
+			publisher: "",
+			edition: "",
+			price: "",
+			required: "",
+			image: ""
+		}
+	});
+
+	var BookView = Backbone.View.extend({
+		el: "<li>",
+		model: Book,
+		initialize: function () {
+			$("#textbooks").append(this.$el);
+			this.render();
+		},
+		render: function () {
+			var content = "<li>" +
+												"<img src='" + this.model.get("image") + "' alt='' />" +
+												"<h3>" + this.model.get("title") + "</h4>" +
+												"<p>by " + this.model.get("author") + ' ' + this.model.get("required") + "</p>" +
+												"<div>" +
+													"<h5>$" + this.model.get("price") + "</h5>" +
+													"<button class='locator'>Locate</button>" +
+												"</div>" +
+											"</li>";
+			
+			this.$el.html(content);
+		},
+		events: {
+			"click .locator": "locate"
+		},
+		locate: function (eve) {
+				
+					alert(this.model.get("title"));
+
+		}
+	});
+	var arr= [];
+	<% @course.books.each do |book| %>
+		arr.push(new BookView({model: new Book({	title: "<%= book.title %>", 
+																							author: "<%= book.author %>",
+																							publisher: "<%= book.publisher %>",
+																							edition: "<%= book.edition %>",
+																							price: "<%= book.price %>",
+																							required: "<%= book.required %>",
+																							image: "<%= book.image %>" })}));
+	<% end %>
+</script>
 

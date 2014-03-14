@@ -17,5 +17,5 @@ $("#course_name").autocomplete({
 		$(".ui-menu").width(190);
 	},
 	source: courses, 
-	delay: 500
+	delay: 700
 });
