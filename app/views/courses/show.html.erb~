@@ -15,6 +15,16 @@
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js" %>
 
 <script>
+	var dir = "up";
+	function movePointer() {
+		if(dir == "up") {
+			dir = "down";
+			$(".book-pointer").animate({top: "-=80"}, 200, movePointer);
+		} else {
+			dir = "up";
+			$(".book-pointer").animate({top: "+=40"}, 400, movePointer);
+		}
+	}
 	var Book = Backbone.Model.extend({
 		defaults: {
 			title: "",
@@ -77,7 +87,7 @@
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
-					setInterval(, 500)
+					movePointer("up");
 				},
 				close: function () {
 					popup.dialog("destroy");
