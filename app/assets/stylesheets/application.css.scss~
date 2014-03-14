@@ -61,10 +61,10 @@ $theBlue: #428BCA;
 				.referenced {	color: orange;
 				}
 			}
-			.media {
+			.book-media {	padding-right: 0;
 				img {	width: 100%;
 				}
-				.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);	
+				.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);		font-size: 88%;
 										color: white;	font-weight: 800;	margin-top: 5px;	width: 100%;
 										padding: 8px;	position: relative;
 					&:hover {	background: $theBlue;
