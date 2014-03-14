@@ -1,4 +1,4 @@
-<div class="container jumbotron">
+<div class="container jumbotron" id="course-books">
 	<h2><%= @course.subject + ' ' + @course.number %> <span class="small">Section #<%= @course.section %></span></h2>
 	<div class="panel panel-primary">
 		<div class="panel-heading">
@@ -11,7 +11,6 @@
 		</div>
 	</div>
 </div>
-
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js" %>
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js" %>
 
@@ -24,27 +23,34 @@
 			edition: "",
 			price: "",
 			required: "",
-			image: ""
+			image: "",
+			location: {	floor: "",
+									subject: "",
+									section: "",
+									x: "",
+									y: ""
+			}
 		}
 	});
 
 	var BookView = Backbone.View.extend({
-		el: "<li>",
+		el: "<li class='book row'>",
 		model: Book,
 		initialize: function () {
 			$("#textbooks").append(this.$el);
 			this.render();
 		},
 		render: function () {
-			var content = "<li>" +
-												"<img src='" + this.model.get("image") + "' alt='' />" +
-												"<h3>" + this.model.get("title") + "</h4>" +
-												"<p>by " + this.model.get("author") + ' ' + this.model.get("required") + "</p>" +
-												"<div>" +
-													"<h5>$" + this.model.get("price") + "</h5>" +
-													"<button class='locator'>Locate</button>" +
-												"</div>" +
-											"</li>";
+			var content = "<div class='col-xs-3'>" + 
+											"<img src='" + this.model.get("image") + "' alt='' />" +
+											"<button class='locator'>Locate</button>" +
+										"</div>" +
+										"<p class='description col-xs-9'>" + 
+											"<span class='title'>" + this.model.get("title") + "</span>" + 
+											" <span class='edition'>(ed. " + this.model.get("edition") + ")</span>" +
+											"<br />by <span class='author'>" + this.model.get("author") + "</span>" +
+											"<br /><span class='" + this.model.get("required").toLowerCase() + "'>" + this.model.get("required") + "</span>" + 
+										"</p>";
 			
 			this.$el.html(content);
 		},
@@ -52,8 +58,31 @@
 			"click .locator": "locate"
 		},
 		locate: function (eve) {
-				
-					alert(this.model.get("title"));
+			var popup = $("<div id='map-container' class='container'>" +
+											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
+											"<p class='book-where'>" + 
+												"<strong>Subject:</strong> " + this.model.get("location").subject +
+												"<br /><strong>Section #:</strong> " + this.model.get("location").section +
+											"</p>" +
+											"<div class='map" + this.model.get("location").floor + "'>" +
+												"<span class='book-pointer glyphicon glyphicon-map-marker' style='top: " + this.model.get("location").y + "%; left: " + this.model.get("location").x + "%;'></span>" +
+											"</div>" +
+										"</div>"
+			);
+
+			popup.dialog({
+				title: "Book Locator",
+				width: 420,
+				height: 400,
+				open: function (eve) {
+					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
+					close_btn.textContent = "";
+					close_btn.classList.add("glyphicon", "glyphicon-remove");
+				},
+				close: function () {
+					popup.dialog("destroy");
+				}
+			});
 
 		}
 	});
@@ -65,7 +94,13 @@
 																							edition: "<%= book.edition %>",
 																							price: "<%= book.price %>",
 																							required: "<%= book.required %>",
-																							image: "<%= book.image %>" })}));
+																							image: "<%= book.image %>",
+																							location: {	floor: "<%= book.location.floor %>",
+																													subject: "<%= book.location.subject %>",
+																													section: "<%= book.location.section %>",
+																													x: <%= book.location.x %>,
+																													y: <%= book.location.y %>
+																							} })}));
 	<% end %>
 </script>
 

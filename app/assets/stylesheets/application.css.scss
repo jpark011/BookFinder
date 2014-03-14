@@ -44,3 +44,49 @@ $theBlue: #428BCA;
 		}
 	}
 }
+
+#course-books {
+	#textbooks {	padding: 0;	list-style: none;
+		.book {	margin-bottom: 20px;
+			.description {	font-size: 120%;
+				.title {	font-weight: 700;
+				}
+				.edition {	font-size: 90%;	color: gray;
+				}
+				.required {	color: red;
+				}
+				.recommended {	color: green;
+				}
+				.alternate {	color: gray;
+				}
+				.referenced {	color: orange;
+				}
+			}
+			.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);	
+									color: white;	font-weight: 800;	left: 12%;	margin-top: 5px;
+									padding: 8px;	position: relative;
+				&:hover {	background: $theBlue;
+				}
+			}
+		}
+	}
+}
+
+.ui-dialog {
+	.ui-dialog-titlebar {	background: #222222;	text-align: right;	color: white;
+		.ui-dialog-titlebar-close {	border: none;	background: inherit;	color: white;	padding: 5px;
+		}
+	}
+	#map-container {	background: white;
+		p {	font-size: 120%;
+		}
+		.floor {	font-weight: 800;	font-size: 140%;
+		}
+		.map1 {	height: 441.7px;	background: url("/assets/floor01.png");	background-size: 100%;
+		}
+		.map2{	height: 110.6px;	background: url("/assets/floor02.png");	background-size: 100%;
+		}
+		.book-pointer {	color: red;
+		}
+	}
+}

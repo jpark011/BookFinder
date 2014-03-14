@@ -23,7 +23,7 @@ namespace :db do
 		end
 
 		# generate sample books
-		Book.delete_all
+		Book.destroy_all
 		500.times do |book|
 			title = 		Faker::Commerce.product_name
 			author = 		Faker::Name.name
@@ -32,13 +32,19 @@ namespace :db do
 			price = 		rand(5.00..199.99).round(2).to_f
 			required = 	["Required", "Referenced", "Recommended", "Alternate"].sample
 			image =			"http://placehold.it/80x80"
+			location = Location.create!(x: rand(0.0..100.0),
+																	y: rand(0.0..100.0),
+																	floor: rand(1..2),
+																	subject: ["Mathematics", "Business", "History", "Science", "Engineering", "Computer Science", "Korean"].sample,
+																	section: rand(1..30));
 			Book.create!(	title: title,
 										author: author,
 										publisher: publisher,
 										edition: edition,
 										price: price,
 										required: required,
-										image: image);
+										image: image,
+										location: location);
 		end
 
 		# assign books to courses randomly.
