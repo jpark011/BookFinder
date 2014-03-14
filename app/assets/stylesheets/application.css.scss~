@@ -9,9 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_jquery.ui.all .
+ *= require_bootstrap
+ *= require_jquery.ui.all
  */
-@import 'bootstrap';
+
 $theBlue: #428BCA;
 #header {
 	#back-button {	background: inherit;	border: medium none;	color: #FFFFFF;
