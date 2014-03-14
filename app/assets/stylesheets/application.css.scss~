@@ -73,7 +73,7 @@ $theBlue: #428BCA;
 }
 
 .ui-dialog {
-	.ui-dialog-titlebar {	background: #222222;	text-align: right;
+	.ui-dialog-titlebar {	background: #222222;	text-align: right;	color: white;
 		.ui-dialog-titlebar-close {	border: none;	background: inherit;	color: white;	padding: 5px;
 		}
 	}
