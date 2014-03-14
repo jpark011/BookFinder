@@ -64,7 +64,7 @@ $theBlue: #428BCA;
 			.book-media {	padding-right: 0;
 				img {	width: 100%;
 				}
-				.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);		font-size: 88%;
+				.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);		font-size: 90%;
 										color: white;	font-weight: 800;	margin-top: 5px;	width: 100%;
 										padding: 8px;	position: relative;
 					&:hover {	background: $theBlue;
@@ -89,7 +89,7 @@ $theBlue: #428BCA;
 		}
 		.map2{	height: 110.6px;	background: url("/assets/floor02.png");	background-size: 100%;
 		}
-		.book-pointer {	color: red;	font-size: 200%;
+		.book-pointer {	color: red;	font-size: 250%;	transition: opacity 1s;
 		}
 	}
 }

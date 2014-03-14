@@ -41,7 +41,7 @@
 			this.render();
 		},
 		render: function () {
-			var content = "<div class='media col-xs-3'>" + 
+			var content = "<div class='book-media col-xs-3'>" + 
 											"<img src='" + this.model.get("image") + "' alt='' />" +
 											"<button class='locator'>Locate</button>" +
 										"</div>" +
@@ -77,6 +77,7 @@
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
+					setInterval(, 500)
 				},
 				close: function () {
 					popup.dialog("destroy");
@@ -85,9 +86,8 @@
 
 		}
 	});
-	var arr= [];
 	<% @course.books.each do |book| %>
-		arr.push(new BookView({model: new Book({	title: "<%= book.title %>", 
+		new BookView({model: new Book({	title: "<%= book.title %>", 
 																							author: "<%= book.author %>",
 																							publisher: "<%= book.publisher %>",
 																							edition: "<%= book.edition %>",
@@ -99,7 +99,7 @@
 																													section: "<%= book.location.section %>",
 																													x: <%= book.location.x %>,
 																													y: <%= book.location.y %>
-																							} })}));
+																							} })});
 	<% end %>
 </script>
 

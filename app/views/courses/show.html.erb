@@ -85,9 +85,8 @@
 
 		}
 	});
-	var arr= [];
 	<% @course.books.each do |book| %>
-		arr.push(new BookView({model: new Book({	title: "<%= book.title %>", 
+		new BookView({model: new Book({	title: "<%= book.title %>", 
 																							author: "<%= book.author %>",
 																							publisher: "<%= book.publisher %>",
 																							edition: "<%= book.edition %>",
@@ -99,7 +98,7 @@
 																													section: "<%= book.location.section %>",
 																													x: <%= book.location.x %>,
 																													y: <%= book.location.y %>
-																							} })}));
+																							} })});
 	<% end %>
 </script>
 
