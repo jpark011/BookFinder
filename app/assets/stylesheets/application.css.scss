@@ -61,10 +61,14 @@ $theBlue: #428BCA;
 				.referenced {	color: orange;
 				}
 			}
-			.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);	
-									color: white;	font-weight: 800;	left: 12%;	margin-top: 5px;
-									padding: 8px;	position: relative;
-				&:hover {	background: $theBlue;
+			.media {
+				img {	width: 100%;
+				}
+				.locator {	border: none; border-radius: 4px;	background: darken($theBlue, 10%);	
+										color: white;	font-weight: 800;	margin-top: 5px;
+										padding: 8px;	position: relative;
+					&:hover {	background: $theBlue;
+					}
 				}
 			}
 		}
@@ -85,7 +89,7 @@ $theBlue: #428BCA;
 		}
 		.map2{	height: 110.6px;	background: url("/assets/floor02.png");	background-size: 100%;
 		}
-		.book-pointer {	color: red;
+		.book-pointer {	color: red;	font-size: 200%;
 		}
 	}
 }

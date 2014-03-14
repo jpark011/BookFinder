@@ -41,7 +41,7 @@
 			this.render();
 		},
 		render: function () {
-			var content = "<div class='col-xs-3'>" + 
+			var content = "<div class='media col-xs-3'>" + 
 											"<img src='" + this.model.get("image") + "' alt='' />" +
 											"<button class='locator'>Locate</button>" +
 										"</div>" +
@@ -71,8 +71,8 @@
 			);
 
 			popup.dialog({
-				width: 420,
-				height: 400,
+				width: 360,
+				height: 380,
 				open: function (eve) {
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";

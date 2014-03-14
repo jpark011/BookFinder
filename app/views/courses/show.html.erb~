@@ -41,7 +41,7 @@
 			this.render();
 		},
 		render: function () {
-			var content = "<div class='col-xs-3'>" + 
+			var content = "<div class='media col-xs-3'>" + 
 											"<img src='" + this.model.get("image") + "' alt='' />" +
 											"<button class='locator'>Locate</button>" +
 										"</div>" +
@@ -71,7 +71,6 @@
 			);
 
 			popup.dialog({
-				title: "Book Locator",
 				width: 420,
 				height: 400,
 				open: function (eve) {

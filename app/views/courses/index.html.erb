@@ -7,12 +7,5 @@
 		</div>
 	<% end %>
 	
-	<div class="panel panel-primary">
-		<div class="panel-heading"><strong>Courses</strong></div>
-		<% @courses.each do |course| %>
-			<div class="panel-body">
-				<%= link_to course.subject + ' ' + course.number + ' Section ' + course.section, course_path(course) %>
-			</div>
-		<% end %> 
-	</div>
+
 </div>
