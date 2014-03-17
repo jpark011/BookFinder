@@ -69,12 +69,13 @@
 		},
 		locate: function (eve) {
 			var popup = $("<div id='map-container' class='container'>" +
-											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
+											"<p class='title'>" + this.model.get("title") + "</p>" +
 											"<p class='book-where'>" + 
 												"<strong>Subject:</strong> " + this.model.get("location").subject +
 												"<br /><strong>Section #:</strong> " + this.model.get("location").section +
 											"</p>" +
-											"<div class='map" + this.model.get("location").floor + "'>" +
+											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
+											"<div class='map'>" + "<img src='/assets/floor0" + this.model.get("location").floor + ".png' />"  +
 												"<span class='book-pointer glyphicon glyphicon-map-marker' style='top: " + this.model.get("location").y + "%; left: " + this.model.get("location").x + "%;'></span>" +
 											"</div>" +
 										"</div>"

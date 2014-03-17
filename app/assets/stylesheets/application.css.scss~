@@ -86,11 +86,11 @@ $theBlue: #428BCA;
 		}
 		.title, .floor {	font-weight: 800;	font-size: 140%;
 		}
-		.map1 {	height: 63.3%%;	background: url("/assets/floor01.png") no-repeat;	background-size: 100%;
-		}
-		.map2{	height: 32.4%;	background: url("/assets/floor02.png") no-repeat;	background-size: 100%;
-		}
-		.book-pointer {	color: red;	font-size: 222%;	transition: 1s;
+		.map {	position: relative;
+			img {	position: absolute;	width: 100%;
+			}
+			.book-pointer {	color: red;	font-size: 222%;	transition: 1s;
+			}
 		}
 	}
 }

@@ -15,16 +15,7 @@
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js" %>
 
 <script>
-	var dir = "up";
-	function movePointer() {
-		if(dir == "up") {
-			dir = "down";
-			$(".book-pointer").animate({top: "-=70"}, 200, movePointer);
-		} else {
-			dir = "up";
-			$(".book-pointer").animate({top: "+=30"}, 400, movePointer);
-		}
-	}
+
 	var Book = Backbone.Model.extend({
 		defaults: {
 			title: "",
@@ -75,7 +66,7 @@
 												"<br /><strong>Section #:</strong> " + this.model.get("location").section +
 											"</p>" +
 											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
-											"<div class='map" + this.model.get("location").floor + "'>" +
+											"<div class='map'>" + "<img src='/assets/floor0" + this.model.get("location").floor + ".png' />"  +
 												"<span class='book-pointer glyphicon glyphicon-map-marker' style='top: " + this.model.get("location").y + "%; left: " + this.model.get("location").x + "%;'></span>" +
 											"</div>" +
 										"</div>"
