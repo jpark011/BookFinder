@@ -16,7 +16,7 @@
 
 <script>
 	var pointer_mover;
-	var dir_up = true;
+	var dir_up;
 	function movePointer() {
 		dir_up = true;
 		pointer_mover = setInterval(function () {
