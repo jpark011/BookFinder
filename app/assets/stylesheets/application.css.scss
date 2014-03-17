@@ -81,7 +81,7 @@ $theBlue: #428BCA;
 																font-size: 18px;
 		}
 	}
-	#map-container {	background: white;
+	#map-container {	background: white;	padding-bottom: 20px;
 		p {	font-size: 120%;
 		}
 		.title, .floor {	font-weight: 800;	font-size: 140%;
@@ -89,7 +89,7 @@ $theBlue: #428BCA;
 		.map {	position: relative;
 			img {	width: 100%;
 			}
-			.book-pointer {	color: red;	font-size: 222%;	transition: 1s;	position: absolute;
+			.book-pointer {	color: red;	font-size: 222%;	transition: 0.4s;	position: absolute;
 			}
 		}
 	}
