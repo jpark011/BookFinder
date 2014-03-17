@@ -15,16 +15,7 @@
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js" %>
 
 <script>
-	var dir = "up";
-	function movePointer() {
-		if(dir == "up") {
-			dir = "down";
-			$(".book-pointer").animate({top: "-=70"}, 200, movePointer);
-		} else {
-			dir = "up";
-			$(".book-pointer").animate({top: "+=30"}, 400, movePointer);
-		}
-	}
+
 	var Book = Backbone.Model.extend({
 		defaults: {
 			title: "",
@@ -85,7 +76,6 @@
 
 			popup.dialog({
 				width: scn_width,
-				height: scn_height,
 				open: function (eve) {
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";

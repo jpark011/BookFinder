@@ -75,7 +75,7 @@ $theBlue: #428BCA;
 	}
 }
 
-.ui-dialog {
+.ui-dialog {	margin-top: 20px
 	.ui-dialog-titlebar {	background: #222222;	text-align: right;	color: white;	height: 40px;
 		.ui-dialog-titlebar-close {	border: none;	background: inherit;	color: white;	padding: 5px;	height: inherit;
 																font-size: 18px;
@@ -87,9 +87,9 @@ $theBlue: #428BCA;
 		.title, .floor {	font-weight: 800;	font-size: 140%;
 		}
 		.map {	position: relative;
-			img {	position: absolute;	width: 100%;
+			img {	width: 100%;
 			}
-			.book-pointer {	color: red;	font-size: 222%;	transition: 1s;
+			.book-pointer {	color: red;	font-size: 222%;	transition: 1s;	position: absolute;
 			}
 		}
 	}

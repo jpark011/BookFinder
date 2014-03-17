@@ -72,11 +72,10 @@
 										"</div>"
 			);
 			var scn_width = window.innerWidth;
-			var scn_height = window.innerHeight;
+			// var scn_height = window.innerHeight;
 
 			popup.dialog({
 				width: scn_width,
-				height: scn_height,
 				open: function (eve) {
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
