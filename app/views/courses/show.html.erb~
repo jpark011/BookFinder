@@ -19,10 +19,10 @@
 	function movePointer() {
 		if(dir == "up") {
 			dir = "down";
-			$(".book-pointer").animate({top: "-=80"}, 200, movePointer);
+			$(".book-pointer").animate({top: "-=70"}, 200, movePointer);
 		} else {
 			dir = "up";
-			$(".book-pointer").animate({top: "+=40"}, 400, movePointer);
+			$(".book-pointer").animate({top: "+=30"}, 400, movePointer);
 		}
 	}
 	var Book = Backbone.Model.extend({
@@ -79,10 +79,12 @@
 											"</div>" +
 										"</div>"
 			);
+			var scn_width = window.innerWidth;
+			var scn_height = window.innerHeight;
 
 			popup.dialog({
-				width: 360,
-				height: 380,
+				width: scn_width,
+				height: scn_height,
 				open: function (eve) {
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";

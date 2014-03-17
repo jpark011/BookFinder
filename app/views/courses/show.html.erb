@@ -69,20 +69,23 @@
 		},
 		locate: function (eve) {
 			var popup = $("<div id='map-container' class='container'>" +
-											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
+											"<p class='title'>" + this.model.get("title") + "</p>" +
 											"<p class='book-where'>" + 
 												"<strong>Subject:</strong> " + this.model.get("location").subject +
 												"<br /><strong>Section #:</strong> " + this.model.get("location").section +
 											"</p>" +
+											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
 											"<div class='map" + this.model.get("location").floor + "'>" +
 												"<span class='book-pointer glyphicon glyphicon-map-marker' style='top: " + this.model.get("location").y + "%; left: " + this.model.get("location").x + "%;'></span>" +
 											"</div>" +
 										"</div>"
 			);
+			var scn_width = window.innerWidth;
+			var scn_height = window.innerHeight;
 
 			popup.dialog({
-				width: 360,
-				height: 380,
+				width: scn_width,
+				height: scn_height,
 				open: function (eve) {
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";

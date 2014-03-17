@@ -76,20 +76,21 @@ $theBlue: #428BCA;
 }
 
 .ui-dialog {
-	.ui-dialog-titlebar {	background: #222222;	text-align: right;	color: white;
-		.ui-dialog-titlebar-close {	border: none;	background: inherit;	color: white;	padding: 5px;
+	.ui-dialog-titlebar {	background: #222222;	text-align: right;	color: white;	height: 40px;
+		.ui-dialog-titlebar-close {	border: none;	background: inherit;	color: white;	padding: 5px;	height: inherit;
+																font-size: 18px;
 		}
 	}
 	#map-container {	background: white;
 		p {	font-size: 120%;
 		}
-		.floor {	font-weight: 800;	font-size: 140%;
+		.title, .floor {	font-weight: 800;	font-size: 140%;
 		}
-		.map1 {	height: 441.7px;	background: url("/assets/floor01.png");	background-size: 100%;
+		.map1 {	height: 64.3%;	background: url("/assets/floor01.png") no-repeat;	background-size: 100%;	margin: 0 25%;
 		}
-		.map2{	height: 110.6px;	background: url("/assets/floor02.png");	background-size: 100%;
+		.map2{	height: 32.4%;	background: url("/assets/floor02.png") no-repeat;	background-size: 100%;
 		}
-		.book-pointer {	color: red;	font-size: 250%;	opacity: 1;	transition: 1s;
+		.book-pointer {	color: red;	font-size: 250%;	transition: 1s;
 		}
 	}
 }
