@@ -21,14 +21,14 @@
 		dir_up = true;
 		$(document).ready(function () {
 			pointer_mover = setInterval(function () {
+					var cur_top = $(".book-pointer").offset().top;
 					if(dir_up) {
-							alert($(".book-pointer").position().top);
-							$(".book-pointer").css("top", "-=10");
+						$(".book-pointer").offset({top: cur_top-10});
 					} else {
-							$(".book-pointer").css("top", "+=10");
+						$(".book-pointer").offset({top: cur_top+10});
 					}
 					dir_up = !dir_up;
-			}, 700);
+			}, 800);
 		});
 	}
 	
