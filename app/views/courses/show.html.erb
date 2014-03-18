@@ -20,6 +20,7 @@
 	function movePointer() {
 		dir_up = true;
 		pointer_mover = setInterval(function () {
+				$(".book-pointer").parent().css({position: 'relative'});
 				if(dir_up) {
 						$(".book-pointer").css("top", "-=10");
 				} else {
