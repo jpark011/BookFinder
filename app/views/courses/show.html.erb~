@@ -24,9 +24,9 @@
 					var ptr = document.getElementsByClassName("book-pointer")[0];
 					var cur_top = parseFloat(ptr.style.top);
 					if(dir_up) {
-						ptr.style.top = cur_top - 1 + '%';
+						ptr.style.top = cur_top - 2 + '%';
 					} else {
-						ptr.style.top = cur_top + 1 + '%';
+						ptr.style.top = cur_top + 2 + '%';
 					}
 					dir_up = !dir_up;
 			}, 800);
