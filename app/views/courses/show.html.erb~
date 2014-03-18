@@ -28,7 +28,7 @@
 					}
 					dir_up = !dir_up;
 			}, 700);
-		}
+		});
 	}
 	
 	var Book = Backbone.Model.extend({
