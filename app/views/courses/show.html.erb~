@@ -22,7 +22,7 @@
 		$(document).ready(function () {
 			pointer_mover = setInterval(function () {
 					if(dir_up) {
-							alert($(".book-pointer").css("top"));
+							alert($(".book-pointer").position().top;
 							$(".book-pointer").css("top", "-=10");
 					} else {
 							$(".book-pointer").css("top", "+=10");
