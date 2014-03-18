@@ -17,19 +17,25 @@
 <script>
 	var pointer_mover;
 	var dir_up;
+	var t = 0;
 	function movePointer() {
 		dir_up = true;
 		$(document).ready(function () {
 			pointer_mover = setInterval(function () {
-					var ptr = document.getElementsByClassName("book-pointer")[0];
-					var cur_top = parseFloat(ptr.style.top);
+					t+=1;
+
+					var ptr = document.getElementsByClassName("book-pointer")[0];				
+					ptr.style.marginTop = Math.pow(Math.sin(t) + 1, 1/2) * -20 + "px";
+					//ptr.style.marginTop = Math.pow(Math.sin(t), 4) * 25 - 25 + "px";	
+
+/*
 					if(dir_up) {
 						ptr.style.top = cur_top - 4 + '%';
 					} else {
 						ptr.style.top = cur_top + 4 + '%';
 					}
-					dir_up = !dir_up;
-			}, 800);
+					dir_up = !dir_up;*/
+			}, 100);
 		});
 	}
 	
