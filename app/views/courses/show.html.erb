@@ -21,7 +21,7 @@
 		dir_up = true;
 		$(document).ready(function () {
 			pointer_mover = setInterval(function () {
-					var cur_top = $(".book-pointer").offset().top;
+					var cur_top = $(".book-pointer").position().top;
 					if(dir_up) {
 						$(".book-pointer").offset({top: cur_top-10});
 					} else {

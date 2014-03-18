@@ -28,7 +28,7 @@
 						$(".book-pointer").offset({top: cur_top+10});
 					}
 					dir_up = !dir_up;
-			}, 700);
+			}, 800);
 		});
 	}
 	
