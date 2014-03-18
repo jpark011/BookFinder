@@ -19,14 +19,16 @@
 	var dir_up;
 	function movePointer() {
 		dir_up = true;
-		pointer_mover = setInterval(function () {
-				if(dir_up) {
-						$(".book-pointer").css("top", "-=10");
-				} else {
-						$(".book-pointer").css("top", "+=10");
-				}
-				dir_up = !dir_up;
-		}, 700);
+		$(document).ready(function () {
+			pointer_mover = setInterval(function () {
+					if(dir_up) {
+							$(".book-pointer").css("top", "-=10");
+					} else {
+							$(".book-pointer").css("top", "+=10");
+					}
+					dir_up = !dir_up;
+			}, 700);
+		}
 	}
 	
 	var Book = Backbone.Model.extend({
@@ -93,7 +95,7 @@
 						var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 						close_btn.textContent = "";
 						close_btn.classList.add("glyphicon", "glyphicon-remove");
-						$(document).ready(movePointer);
+						movePointer();
 					
 					},
 					close: function () {
