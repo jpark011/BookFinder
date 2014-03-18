@@ -102,7 +102,7 @@
 						clearInterval(pointer_mover);
 					}
 				});
-			}
+			});
 		}
 	});
 	<% @course.books.each do |book| %>
