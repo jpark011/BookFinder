@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
 		number = (defined?(input_array[1]))? input_array[1] : nil
 		section = (defined?(input_array[3]))? input_array[3] : nil
 
-		courses = Course.where("subject LIKE ? AND number LIKE ? AND section LIKE ?", "#{subject}%", "#{number}%", "#{section}%")
+		courses = Course.limit(6).where("subject LIKE ? AND number LIKE ? AND section LIKE ?", "#{subject}%", "#{number}%", "#{section}%").order(:subject, :number, :section)
 		courses = courses.map { 
 			|x| x.subject + ' ' + x.number + ' Section ' + x.section
 		}
