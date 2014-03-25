@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140320183458) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: true do |t|
     t.string   "title"
     t.string   "author"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140320183458) do
     t.datetime "updated_at"
   end
 
-  add_index "courses", ["subject"], name: "index_courses_on_subject"
+  add_index "courses", ["subject"], name: "index_courses_on_subject", using: :btree
 
   create_table "locations", force: true do |t|
     t.integer  "book_id"

@@ -3,5 +3,9 @@ $("#course_name").autocomplete({
 		$(".ui-menu").width(190);
 	},
 	source: "/courses/match", 
+	select: function( event, ui ) {
+		$("#course_name").val(ui.item.value);
+		$("#search-btn").click();
+	},
 	delay: 200
 });

@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Migrate to PostgreSQL
+gem 'pg'
+
 # Populator & Faker for sample data
 gem 'populator'
 gem 'faker'

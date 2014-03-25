@@ -8,7 +8,7 @@ development:
   encoding: unicode
   database: bookfinder
   pool: 5
-  username: postgres
+  username: weston
   password: weston1234
 
 # Warning: The database defined as "test" will be erased and
