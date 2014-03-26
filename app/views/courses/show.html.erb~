@@ -14,17 +14,45 @@
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js" %>
 <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js" %>
 
+<script type= "text/template" id="book-list-template">
+	<div class="book-media col-xs-3">
+		<img src="<%%= image %>" alt="" />
+		<button class="locator">Locate</button>
+	</div>
+	<p class="description col-xs-9">
+		<span class="title"><%%= title %></span>
+		<span class="edition">(ed. <%%= edition %>)</span>
+		<br />by <span class="author"><%%= author %></span>
+		<br /><span class="<%%= required.toLowerCase() %>"><%%= required %></span>
+	</p>
+</script>
+
+<script type="text/template" id="book-locator-template">
+	<div id="map-container" class="container">
+		<p class="title"><%%= title %></p>
+		<p class="book-where">
+			<strong>Subject:</strong><%%= location.subject %>
+			<br /><strong>Section #:</strong><%%= location.section %>
+		</p>
+		<p class="floor">Floor <%%= location.floor %></p>
+		<div class="map"><img src="/assets/floor0<%%= location.floor %>.png" />
+			<%% alert("y: " + location.y + " x: " + location.x) %>
+			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= location.y %>%; left: <%%= location.x %>%;">
+			</span>
+		</div>
+	</div>
+</script>
+
 <script>
 	var pointer_mover;
-	var dir_up;
 	var t = 0;
 	function movePointer() {
 		$(document).ready(function () {
 			pointer_mover = setInterval(function () {
 					t+=1;
 
-					var ptr = document.getElementsByClassName("book-pointer")[0];				
-					ptr.style.marginTop = Math.pow(Math.sin(t) + 1, 1/2) * -20 + "px";
+					var ptr = $(".book-pointer");
+					ptr.css("marginTop", Math.pow(Math.sin(t) + 1, 1/2) * -20 + "px");
 			}, 100);
 		});
 	}
@@ -54,36 +82,14 @@
 			$("#textbooks").append(this.$el);
 			this.render();
 		},
-		render: function () {
-			var content = "<div class='book-media col-xs-3'>" + 
-											"<img src='" + this.model.get("image") + "' alt='' />" +
-											"<button class='locator'>Locate</button>" +
-										"</div>" +
-										"<p class='description col-xs-9'>" + 
-											"<span class='title'>" + this.model.get("title") + "</span>" + 
-											" <span class='edition'>(ed. " + this.model.get("edition") + ")</span>" +
-											"<br />by <span class='author'>" + this.model.get("author") + "</span>" +
-											"<br /><span class='" + this.model.get("required").toLowerCase() + "'>" + this.model.get("required") + "</span>" + 
-										"</p>";
-			
-			this.$el.html(content);
+		render: function () {		
+			this.$el.html(_.template($("#book-list-template").html(), this.model.attributes));
 		},
 		events: {
 			"click .locator": "locate"
 		},
 		locate: function (eve) {
-			var popup = $("<div id='map-container' class='container'>" +
-											"<p class='title'>" + this.model.get("title") + "</p>" +
-											"<p class='book-where'>" + 
-												"<strong>Subject:</strong> " + this.model.get("location").subject +
-												"<br /><strong>Section #:</strong> " + this.model.get("location").section +
-											"</p>" +
-											"<p class='floor'>Floor " + this.model.get("location").floor + "</p>" +
-											"<div class='map'>" + "<img src='/assets/floor0" + this.model.get("location").floor + ".png' />"  +
-												"<span class='book-pointer glyphicon glyphicon-map-marker' style='top: " + this.model.get("location").y + "%; left: " + this.model.get("location").x + "%;'></span>" +
-											"</div>" +
-										"</div>"
-			);
+			var popup = $(_.template($("#book-locator-template").html(), this.model.attributes));
 				var scn_width = window.innerWidth;
 				// var scn_height = window.innerHeight;
 
