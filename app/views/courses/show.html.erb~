@@ -24,6 +24,7 @@
 		<span class="edition">(ed. <%%= edition %>)</span>
 		<br />by <span class="author"><%%= author %></span>
 		<br /><span class="<%%= required.toLowerCase() %>"><%%= required %></span>
+		<br /><span class="price">$<%%= price %></span>
 	</p>
 </script>
 
@@ -36,7 +37,6 @@
 		</p>
 		<p class="floor">Floor <%%= location.floor %></p>
 		<div class="map"><img src="/assets/floor0<%%= location.floor %>.png" />
-			<%% alert("y: " + location.y + " x: " + location.x) %>
 			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= location.y %>%; left: <%%= location.x %>%;">
 			</span>
 		</div>
@@ -110,19 +110,25 @@
 		}
 	});
 	<% @course.books.each do |book| %>
-		new BookView({model: new Book({	title: "<%= book.title %>", 
-																							author: "<%= book.author %>",
-																							publisher: "<%= book.publisher %>",
-																							edition: "<%= book.edition %>",
-																							price: "<%= book.price %>",
-																							required: "<%= book.required %>",
-																							image: "<%= book.image %>",
-																							location: {	floor: "<%= book.location.floor %>",
-																													subject: "<%= book.location.subject %>",
-																													section: "<%= book.location.section %>",
-																													x: <%= book.location.x %>,
-																													y: <%= book.location.y %>
-																							} })});
+		new BookView(
+			{	model: new Book(
+				{	title: "<%= book.title %>", 
+					author: "<%= book.author %>",
+					publisher: "<%= book.publisher %>",
+					edition: "<%= book.edition %>",
+					price: "<%= book.price %>",
+					required: "<%= book.required %>",
+					image: "<%= book.image %>",
+					location: {	floor: "<%= book.location.floor %>",
+											subject: "<%= book.location.subject %>",
+											section: "<%= book.location.section %>",
+											x: <%= book.location.x %>,
+											y: <%= book.location.y %>
+										}
+				})
+			});
 	<% end %>
 </script>
+
+
 

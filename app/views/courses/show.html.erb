@@ -24,6 +24,7 @@
 		<span class="edition">(ed. <%%= edition %>)</span>
 		<br />by <span class="author"><%%= author %></span>
 		<br /><span class="<%%= required.toLowerCase() %>"><%%= required %></span>
+		<br /><span class="price">$<%%= price %></span>
 	</p>
 </script>
 
@@ -43,85 +44,93 @@
 </script>
 
 <script>
-	var pointer_mover;
-	var t = 0;
-	function movePointer() {
-		$(document).ready(function () {
-			pointer_mover = setInterval(function () {
-					t+=1;
 
-					var ptr = $(".book-pointer");
-					ptr.css("marginTop", Math.pow(Math.sin(t) + 1, 1/2) * -20 + "px");
-			}, 100);
-		});
+var pointer_mover;
+var t = 0;
+function movePointer() {
+	$(document).ready(function () {
+		pointer_mover = setInterval(function () {
+				t+=1;
+
+				var ptr = $(".book-pointer");
+				ptr.css("marginTop", Math.pow(Math.sin(t) + 1, 1/2) * -20 + "px");
+		}, 100);
+	});
+}
+
+var Book = Backbone.Model.extend({
+	defaults: {
+		title: "",
+		author: "",
+		publisher: "",
+		edition: "",
+		price: "",
+		required: "",
+		image: "",
+		location: {	floor: "",
+								subject: "",
+								section: "",
+								x: "",
+								y: ""
+		}
 	}
-	
-	var Book = Backbone.Model.extend({
-		defaults: {
-			title: "",
-			author: "",
-			publisher: "",
-			edition: "",
-			price: "",
-			required: "",
-			image: "",
-			location: {	floor: "",
-									subject: "",
-									section: "",
-									x: "",
-									y: ""
-			}
-		}
-	});
+});
 
-	var BookView = Backbone.View.extend({
-		el: "<li class='book row'>",
-		model: Book,
-		initialize: function () {
-			$("#textbooks").append(this.$el);
-			this.render();
-		},
-		render: function () {		
-			this.$el.html(_.template($("#book-list-template").html(), this.model.attributes));
-		},
-		events: {
-			"click .locator": "locate"
-		},
-		locate: function (eve) {
-			var popup = $(_.template($("#book-locator-template").html(), this.model.attributes));
-				var scn_width = window.innerWidth;
-				// var scn_height = window.innerHeight;
+var BookView = Backbone.View.extend({
+	el: "<li class='book row'>",
+	model: Book,
+	initialize: function () {
+		$("#textbooks").append(this.$el);
+		this.render();
+	},
+	render: function () {		
+		this.$el.html(_.template($("#book-list-template").html(), this.model.attributes));
+	},
+	events: {
+		"click .locator": "locate"
+	},
+	locate: function (eve) {
+		var popup = $(_.template($("#book-locator-template").html(), this.model.attributes));
+			var scn_width = window.innerWidth;
+			// var scn_height = window.innerHeight;
 
-				popup.dialog({
-					width: scn_width,
-					open: function (eve) {
-						var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
-						close_btn.textContent = "";
-						close_btn.classList.add("glyphicon", "glyphicon-remove");
-						movePointer();
-					
-					},
-					close: function () {
-						popup.dialog("destroy");
-						clearInterval(pointer_mover);
-					}
-				});
-		}
-	});
-	<% @course.books.each do |book| %>
-		new BookView({model: new Book({	title: "<%= book.title %>", 
-																							author: "<%= book.author %>",
-																							publisher: "<%= book.publisher %>",
-																							edition: "<%= book.edition %>",
-																							price: "<%= book.price %>",
-																							required: "<%= book.required %>",
-																							image: "<%= book.image %>",
-																							location: {	floor: "<%= book.location.floor %>",
-																													subject: "<%= book.location.subject %>",
-																													section: "<%= book.location.section %>",
-																													x: <%= book.location.x %>,
-																													y: <%= book.location.y %>
-																							} })});
-	<% end %>
+			popup.dialog({
+				width: scn_width,
+				open: function (eve) {
+					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
+					close_btn.textContent = "";
+					close_btn.classList.add("glyphicon", "glyphicon-remove");
+					movePointer();
+				
+				},
+				close: function () {
+					popup.dialog("destroy");
+					clearInterval(pointer_mover);
+				}
+			});
+	}
+});
+<% @course.books.each do |book| %>
+	new BookView(
+		{	model: new Book(
+			{	title: "<%= book.title %>", 
+				author: "<%= book.author %>",
+				publisher: "<%= book.publisher %>",
+				edition: "<%= book.edition %>",
+				price: "<%= book.price %>",
+				required: "<%= book.required %>",
+				image: "<%= book.image %>",
+				location: {	floor: "<%= book.location.floor %>",
+										subject: "<%= book.location.subject %>",
+										section: "<%= book.location.section %>",
+										x: <%= book.location.x %>,
+										y: <%= book.location.y %>
+									}
+			})
+		});
+<% end %>
+
 </script>
+
+
 
