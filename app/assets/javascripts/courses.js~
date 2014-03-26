@@ -4,8 +4,8 @@ $("#course_name").autocomplete({
 	},
 	source: "/courses/match", 
 	select: function( event, ui ) {
-		$("#course_name").val(ui.value);
+		$("#course_name").val(ui.item.value);
 		$("#search-btn").click();
 	},
-	delay: 200
+	delay: 100
 });

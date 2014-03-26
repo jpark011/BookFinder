@@ -6,6 +6,5 @@ $("#course_name").autocomplete({
 	select: function( event, ui ) {
 		$("#course_name").val(ui.item.value);
 		$("#search-btn").click();
-	},
-	delay: 200
+	}
 });
