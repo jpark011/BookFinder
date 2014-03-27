@@ -2,10 +2,9 @@
 	<%= form_tag "/courses/search", method: "get", id: "search", class: "form-inline" do %>
 		<div class="form-group">
 			<%= label_tag :course_name, "Type a course: " %>
+			<p id="error-msg"></p>
 			<%= text_field_tag :course_name, nil, class: 'form-control', autocomplete: "off", placeholder: "ex) MATH 101 Section 02", required: "required" %>
 			<%= submit_tag "Search", name: nil, class: "btn btn-primary", id: "search-btn" %>
 		</div>
 	<% end %>
-	
-
 </div>

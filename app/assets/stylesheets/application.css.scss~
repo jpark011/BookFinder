@@ -27,6 +27,8 @@ $theBlue: #428BCA;
 #search {	margin: 0 auto;	width: 300px;
 	label {	display: block;
 	}
+	.error-msg {	color: red;
+	}
 	.form-control {	display: inline-block;	width: auto;
 	}
 	.ui-helper-hidden-accessible {	display: none;
@@ -59,6 +61,8 @@ $theBlue: #428BCA;
 				.alternate {	color: gray;
 				}
 				.referenced {	color: orange;
+				}
+				.price {	font-weight: 700;
 				}
 			}
 			.book-media {	padding-right: 0;

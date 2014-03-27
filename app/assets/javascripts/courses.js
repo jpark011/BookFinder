@@ -8,3 +8,27 @@ $("#course_name").autocomplete({
 		$("#search-btn").click();
 	}
 });
+
+function validateCourse(data) {
+		if(data.length == 0) {
+			$("#error-msg").text = "Course does not exist!";
+			event.preventDefault();
+		}
+}
+
+$("#search").submit(function(event) {
+	$.ajax({
+		url: "/courses/match",
+		data: {term: $("#course_name").val()},
+		async: false,
+		success: function validateCourse(data) {
+				if(data.length == 0) {
+					$("#error-msg").text("Course does not exist!");
+					event.preventDefault();
+				}
+		}
+	});
+});
+
+
+
