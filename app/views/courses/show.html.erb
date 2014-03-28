@@ -102,6 +102,9 @@ var BookView = Backbone.View.extend({
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
 					movePointer();
+					$(".ui-widget-overlay").on("click", function () {
+						close_btn.click();
+					});
 				},
 				close: function () {
 					popup.dialog("destroy");

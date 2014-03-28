@@ -15,7 +15,7 @@ $("#search").submit(function(event) {
 		data: {term: $("#course_name").val()},
 		async: false,
 		success: function validateCourse(data) {
-				if(data.length == 0) {
+				if(data.indexOf($("#course_name").val()) == -1) {
 					$("#error-msg").text("Course does not exist!");
 					event.preventDefault();
 				}
@@ -23,5 +23,6 @@ $("#search").submit(function(event) {
 	});
 });
 
-
-
+$(".ui-widget-overlay").on("click", function () {
+	$(".ui-dialog-titlebar-close").click();
+});

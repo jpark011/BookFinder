@@ -12,6 +12,9 @@
  */
 @import 'bootstrap';
 $theBlue: #428BCA;
+body {	position: relative;
+}
+
 #header {
 	#back-button {	background: inherit;	border: medium none;	color: #FFFFFF;
  									display: block;	font-size: 21px;	padding: 10px;	
@@ -76,6 +79,10 @@ $theBlue: #428BCA;
 			}
 		}
 	}
+}
+
+.ui-widget-overlay {	position: absolute;	top: 0;	left: 0;	width: 100%;	height: 100%;
+											background-color: rgba(0,0,0,0.4);
 }
 
 .ui-dialog {	margin-top: 20px;

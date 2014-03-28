@@ -96,11 +96,14 @@ var BookView = Backbone.View.extend({
 
 			popup.dialog({
 				width: scn_width*0.9,
+				modal: true,
 				open: function (eve) {
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
 					movePointer();
+					$(".ui-widget-overlay").on("click", function () {
+					});
 				},
 				close: function () {
 					popup.dialog("destroy");
