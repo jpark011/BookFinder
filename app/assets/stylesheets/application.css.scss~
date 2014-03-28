@@ -9,8 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_jquery.ui.all
  */
+@import url("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css");
 @import 'bootstrap';
 $theBlue: #428BCA;
 #header {
@@ -27,7 +27,7 @@ $theBlue: #428BCA;
 #search {	margin: 0 auto;	width: 300px;
 	label {	display: block;
 	}
-	.error-msg {	color: red;
+	#error-msg {	color: red;
 	}
 	.form-control {	display: inline-block;	width: auto;
 	}
