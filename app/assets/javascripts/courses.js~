@@ -9,13 +9,6 @@ $("#course_name").autocomplete({
 	}
 });
 
-function validateCourse(data) {
-		if(data.length == 0) {
-			$("#error-msg").text = "Course does not exist!";
-			event.preventDefault();
-		}
-}
-
 $("#search").submit(function(event) {
 	$.ajax({
 		url: "/courses/match",
@@ -23,7 +16,7 @@ $("#search").submit(function(event) {
 		async: false,
 		success: function validateCourse(data) {
 				if(data.length == 0) {
-					$("#error-msg").text = "Course does not exist!";
+					$("#error-msg").text("Course does not exist!");
 					event.preventDefault();
 				}
 		}
