@@ -103,6 +103,7 @@ var BookView = Backbone.View.extend({
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
 					movePointer();
 					$(".ui-widget-overlay").on("click", function () {
+						close_btn.click();
 					});
 				},
 				close: function () {
@@ -122,12 +123,7 @@ var BookView = Backbone.View.extend({
 				price: "<%= book.price %>",
 				required: "<%= book.required %>",
 				image: "<%= book.image %>",
-				location: {	floor: "<%= book.location.floor %>",
-										subject: "<%= book.location.subject %>",
-										section: "<%= book.location.section %>",
-										x: <%= book.location.x %>,
-										y: <%= book.location.y %>
-									}
+				location: "<%= book.location %>"
 			})
 		});
 <% end %>

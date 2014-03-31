@@ -1,0 +1,7 @@
+class AssignBooksToShelves < ActiveRecord::Migration
+  def change
+		add_column :books do |t|
+			t.integer :shelf_id
+    end
+  end
+end

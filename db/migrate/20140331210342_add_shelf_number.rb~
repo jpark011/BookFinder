@@ -1,0 +1,4 @@
+class AddShelfNumber < ActiveRecord::Migration
+  def change
+  end
+end
