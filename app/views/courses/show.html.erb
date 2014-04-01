@@ -113,8 +113,9 @@ var BookView = Backbone.View.extend({
 			});
 	}
 });
+var book_arr = [];
 <% @course.books.each do |book| %>
-	new BookView(
+	book_arr.push(new BookView(
 		{	model: new Book(
 			{	title: "<%= book.title %>", 
 				author: "<%= book.author %>",
@@ -131,7 +132,7 @@ var BookView = Backbone.View.extend({
 					y: <%= book.shelf.y %>
 				}
 			})
-		});
+		}));
 <% end %>
 
 </script>

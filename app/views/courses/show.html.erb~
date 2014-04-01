@@ -101,18 +101,19 @@ var BookView = Backbone.View.extend({
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
-					//movePointer();
+					movePointer();
 					$(".ui-widget-overlay").on("click", function () {
 						close_btn.click();
 					});
 				},
 				close: function () {
 					popup.dialog("destroy");
-					//clearInterval(pointer_mover);
+					clearInterval(pointer_mover);
 				}
 			});
 	}
 });
+var book_arr = [];
 <% @course.books.each do |book| %>
 	new BookView(
 		{	model: new Book(
