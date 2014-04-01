@@ -272,34 +272,34 @@ namespace :db do
 			when 5
 				x = 46.8 + offset
 				y = -4.2
+			when 6
+				x = 43.9 + offset
+				y = 17.8
+			when 7
+				x = 42.8 + offset
+				y = 17.8
+			when 8
+				x = 39.2 + offset
+				y = 17.8
+			when 9
+				x = 38.2 + offset
+				y = 17.8
+			when 10
+				x = 38.2 + offset
+				y = 11.8
+			when 11
+				x = 39.2 + offset
+				y = 11.8
+			when 12
+				x = 42.8 + offset
+				y = 11.8
 			when 13
 				x = 43.9 + offset
-				y = 17.8
+				y = 11.8
 			when 14
-				x = 42.8 + offset
-				y = 17.8
-			when 15
-				x = 39.2 + offset
-				y = 17.8
-			when 16
-				x = 38.2 + offset
-				y = 17.8
-			when 17
-				x = 38.2 + offset
-				y = 11.8
-			when 18
-				x = 39.2 + offset
-				y = 11.8
-			when 19
-				x = 42.8 + offset
-				y = 11.8
-			when 20
-				x = 43.9 + offset
-				y = 11.8
-			when 21
 				x = 43.3 + offset
 				y = 5.8
-			when 22
+			when 15
 				x = 38.6 + offset
 				y = 5.8
 			end

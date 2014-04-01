@@ -394,6 +394,7 @@ namespace :db do
 			x = 0
 			y = 0
 		end
+		return x,y
 	end
 
 	# Helper function for generating shelves	
