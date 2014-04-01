@@ -67,19 +67,19 @@ namespace :db do
 		# Start of Floor 2
 		when 18
 			case shelf_number
-			case 0
+			when 0
 				x = 1.1
 				y = 36.6
-			case 1
+			when 1
 				x = 1.1
 				y = 42.6
-			case 2
+			when 2
 				x = 2.2
 				y = 48.6
-			case 3
+			when 3
 				x = 7.6
 				y = 46.8
-			case 4
+			when 4
 				x = 7.6
 				y = 40.8
 			end
@@ -406,10 +406,15 @@ namespace :db do
 								"Art", "English", "Philosophy"]
 		section.each do |s|
 			number_of_shelves.times do |shelf|
-				Shelf.create!(floor: floor.to_s(),
-											subject: subject.sample,
-											section: s.to_s(),
-											shelf_number: shelf.to_s())
+				pos = mapShelf(s, shelf)
+				Shelf.create!(
+					floor: floor.to_s(),
+					subject: subject.sample,
+					section: s.to_s(),
+					shelf_number: shelf.to_s(),
+					x: pos[0],
+					y: pos[1]
+				)
 			end
 		end
 	end

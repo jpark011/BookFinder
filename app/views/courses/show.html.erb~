@@ -32,11 +32,11 @@
 	<div id="map-container" class="container">
 		<p class="title"><%%= title %></p>
 		<p class="book-where">
-			<strong>Subject:</strong><%%= location.subject %>
-			<br /><strong>Section #:</strong><%%= location.section %>
+			<strong>Subject:</strong><%%= shelf.subject %>
+			<br /><strong>Section #:</strong><%%= shelf.section %>
 		</p>
-		<p class="floor">Floor <%%= location.floor %></p>
-		<div class="map"><img src="/assets/floor0<%%= location.floor %>.png" />
+		<p class="floor">Floor <%%= shelf.floor %></p>
+		<div class="map"><img src="/assets/floor0<%%= shelf.floor %>.png" />
 			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= shelf.y %>%; left: <%%= shelf.x %>%;">
 			</span>
 		</div>
@@ -127,8 +127,8 @@ var BookView = Backbone.View.extend({
 					floor: "<%= book.shelf.floor %>",
 					subject: "<%= book.shelf.subject %>",
 					section: "<%= book.shelf.section %>",
-					x: 10,
-					y: 10
+					x: <%= book.shelf.x %>,
+					y: <%= book.shelf.y %>
 				}
 			})
 		});

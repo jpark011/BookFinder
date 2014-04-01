@@ -101,14 +101,14 @@ var BookView = Backbone.View.extend({
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
-					//movePointer();
+					movePointer();
 					$(".ui-widget-overlay").on("click", function () {
 						close_btn.click();
 					});
 				},
 				close: function () {
 					popup.dialog("destroy");
-					//clearInterval(pointer_mover);
+					clearInterval(pointer_mover);
 				}
 			});
 	}
@@ -127,8 +127,8 @@ var BookView = Backbone.View.extend({
 					floor: "<%= book.shelf.floor %>",
 					subject: "<%= book.shelf.subject %>",
 					section: "<%= book.shelf.section %>",
-					x: 10,
-					y: 10
+					x: <%= book.shelf.x %>,
+					y: <%= book.shelf.y %>
 				}
 			})
 		});

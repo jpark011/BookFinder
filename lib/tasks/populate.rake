@@ -394,6 +394,7 @@ namespace :db do
 			x = 0
 			y = 0
 		end
+		return x,y
 	end
 
 	# Helper function for generating shelves	
@@ -406,10 +407,15 @@ namespace :db do
 								"Art", "English", "Philosophy"]
 		section.each do |s|
 			number_of_shelves.times do |shelf|
-				Shelf.create!(floor: floor.to_s(),
-											subject: subject.sample,
-											section: s.to_s(),
-											shelf_number: shelf.to_s())
+				pos = mapShelf(s, shelf)
+				Shelf.create!(
+					floor: floor.to_s(),
+					subject: subject.sample,
+					section: s.to_s(),
+					shelf_number: shelf.to_s(),
+					x: pos[0],
+					y: pos[1]
+				)
 			end
 		end
 	end
