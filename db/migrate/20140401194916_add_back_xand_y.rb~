@@ -1,0 +1,4 @@
+class AddBackXandY < ActiveRecord::Migration
+  def change
+  end
+end

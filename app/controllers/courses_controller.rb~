@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
 		course = Course.where(	subject: params_array[0], 
 														number: params_array[1], 
 														section: params_array[3])
-		redirect_to :action => "show", :id => course.id
+		redirect_to :action => "show", :id => course.first.id
 	end
 
 	# Return matched courses

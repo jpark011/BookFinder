@@ -37,7 +37,7 @@
 		</p>
 		<p class="floor">Floor <%%= location.floor %></p>
 		<div class="map"><img src="/assets/floor0<%%= location.floor %>.png" />
-			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= location.y %>%; left: <%%= location.x %>%;">
+			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= shelf.y %>%; left: <%%= shelf.x %>%;">
 			</span>
 		</div>
 	</div>
@@ -67,7 +67,7 @@ var Book = Backbone.Model.extend({
 		price: "",
 		required: "",
 		image: "",
-		location: {	floor: "",
+		shelf: {	floor: "",
 								subject: "",
 								section: "",
 								x: "",
@@ -101,14 +101,14 @@ var BookView = Backbone.View.extend({
 					var close_btn = this.parentElement.getElementsByClassName("ui-button-text")[0];
 					close_btn.textContent = "";
 					close_btn.classList.add("glyphicon", "glyphicon-remove");
-					movePointer();
+					//movePointer();
 					$(".ui-widget-overlay").on("click", function () {
 						close_btn.click();
 					});
 				},
 				close: function () {
 					popup.dialog("destroy");
-					clearInterval(pointer_mover);
+					//clearInterval(pointer_mover);
 				}
 			});
 	}
@@ -123,7 +123,13 @@ var BookView = Backbone.View.extend({
 				price: "<%= book.price %>",
 				required: "<%= book.required %>",
 				image: "<%= book.image %>",
-				location: "<%= book.location %>"
+				shelf: {	
+					floor: "<%= book.shelf.floor %>",
+					subject: "<%= book.shelf.subject %>",
+					section: "<%= book.shelf.section %>",
+					x: 10,
+					y: 10
+				}
 			})
 		});
 <% end %>
