@@ -70,6 +70,7 @@ var Book = Backbone.Model.extend({
 		shelf: {	floor: "",
 								subject: "",
 								section: "",
+								shelf_number: "",
 								x: "",
 								y: ""
 		}
@@ -128,6 +129,7 @@ var book_arr = [];
 					floor: "<%= book.shelf.floor %>",
 					subject: "<%= book.shelf.subject %>",
 					section: "<%= book.shelf.section %>",
+					shelf_number: "<%= book.shelf.shelf_number %>",
 					x: <%= book.shelf.x %>,
 					y: <%= book.shelf.y %>
 				}
