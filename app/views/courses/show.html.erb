@@ -36,7 +36,7 @@
 			<br /><strong>Section #:</strong><%%= shelf.section %>
 		</p>
 		<p class="floor">Floor <%%= shelf.floor %></p>
-		<div class="map"><img src="/assets/floor0<%%= shelf.floor %>.png" />
+		<div class="map floor<%%= shelf.floor %>"><img src="/assets/floor0<%%= shelf.floor %>.png" />
 			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= shelf.y %>%; left: <%%= shelf.x %>%;">
 			</span>
 		</div>
@@ -114,9 +114,9 @@ var BookView = Backbone.View.extend({
 			});
 	}
 });
-var book_arr = [];
+// for testing purpose var book_arr = [];
 <% @course.books.each do |book| %>
-	book_arr.push(new BookView(
+	new BookView(
 		{	model: new Book(
 			{	title: "<%= book.title %>", 
 				author: "<%= book.author %>",
@@ -134,7 +134,7 @@ var book_arr = [];
 					y: <%= book.shelf.y %>
 				}
 			})
-		}));
+		});
 <% end %>
 
 </script>

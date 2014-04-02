@@ -1,0 +1,4 @@
+class AddColumnsStudent < ActiveRecord::Migration
+  def change
+  end
+end

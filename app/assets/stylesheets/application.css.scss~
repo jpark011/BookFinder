@@ -82,7 +82,7 @@ body {	position: relative;
 }
 
 .ui-widget-overlay {	position: absolute;	top: 0;	left: 0;	width: 100%;	height: 100%;
-											background-color: rgba(0,0,0,0.4)
+											background-color: rgba(0,0,0,0.4);
 }
 
 .ui-dialog {	margin-top: 20px;
@@ -97,6 +97,8 @@ body {	position: relative;
 		.title, .floor {	font-weight: 800;	font-size: 140%;
 		}
 		.map {	position: relative;
+			&.floor2 {
+			}
 			img {	width: 100%;
 			}
 			.book-pointer {	color: red;	font-size: 222%;	transition: 0.2s;	position: absolute;

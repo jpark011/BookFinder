@@ -272,34 +272,34 @@ namespace :db do
 			when 5
 				x = 46.8 + offset
 				y = -4.2
+			when 6
+				x = 43.9 + offset
+				y = 17.8
+			when 7
+				x = 42.8 + offset
+				y = 17.8
+			when 8
+				x = 39.2 + offset
+				y = 17.8
+			when 9
+				x = 38.2 + offset
+				y = 17.8
+			when 10
+				x = 38.2 + offset
+				y = 11.8
+			when 11
+				x = 39.2 + offset
+				y = 11.8
+			when 12
+				x = 42.8 + offset
+				y = 11.8
 			when 13
 				x = 43.9 + offset
-				y = 17.8
+				y = 11.8
 			when 14
-				x = 42.8 + offset
-				y = 17.8
-			when 15
-				x = 39.2 + offset
-				y = 17.8
-			when 16
-				x = 38.2 + offset
-				y = 17.8
-			when 17
-				x = 38.2 + offset
-				y = 11.8
-			when 18
-				x = 39.2 + offset
-				y = 11.8
-			when 19
-				x = 42.8 + offset
-				y = 11.8
-			when 20
-				x = 43.9 + offset
-				y = 11.8
-			when 21
 				x = 43.3 + offset
 				y = 5.8
-			when 22
+			when 15
 				x = 38.6 + offset
 				y = 5.8
 			end
@@ -429,6 +429,29 @@ namespace :db do
 								"STAT", "CO", "PHYS", "ECE", "CHEM", "BIO", "COMM", "KOR"]
 		numbers = [101, 102, 250, 260, 345, 346, 460, 480]
 		sections = ["01", "02", "03"]
+		
+		# generate sample students
+		Student.delete_all	#erase first
+		200.times do |n|
+			std_id = Faker::Number.number(8)
+			first_name = Faker::Name.first_name
+			last_name = Faker::Name.last_name			
+			year = [1..5].sample
+			term = ["A", "B", "coop"].sample
+			user_id  = "student" + n.to_s	
+			password = "password"
+			Student.create!(
+				id: std_id,
+				first_name: first_name,
+				last_name: last_name,
+				year: year,
+				term: term,
+				user_id: user_id,
+				password: password
+			)
+		end
+		# custom students
+		
 		
 		# generate sample courses
 		Course.delete_all	# erase first

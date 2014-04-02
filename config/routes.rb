@@ -6,5 +6,5 @@ Bookfinder::Application.routes.draw do
 		end
 	end
 	resources :books
-	root 'courses#index'
+	root 'main#index'
 end

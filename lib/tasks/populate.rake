@@ -430,6 +430,29 @@ namespace :db do
 		numbers = [101, 102, 250, 260, 345, 346, 460, 480]
 		sections = ["01", "02", "03"]
 		
+		# generate sample students
+		Student.delete_all	#erase first
+		200.times do |n|
+			std_id = Faker::Number.number(8)
+			first_name = Faker::Name.first_name
+			last_name = Faker::Name.last_name			
+			year = rand(1..5)
+			term = ["A", "B", "coop"].sample
+			user_id  = "student" + n.to_s	
+			password = "password"
+			Student.create!(
+				id: std_id,
+				first_name: first_name,
+				last_name: last_name,
+				year: year,
+				term: term,
+				user_id: user_id,
+				password: password
+			)
+		end
+		# custom students
+		
+		
 		# generate sample courses
 		Course.delete_all	# erase first
 		subjects.each do |subject|
