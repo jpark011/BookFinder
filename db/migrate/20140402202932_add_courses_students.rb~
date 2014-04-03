@@ -1,0 +1,4 @@
+class AddCoursesStudents < ActiveRecord::Migration
+  def change
+  end
+end

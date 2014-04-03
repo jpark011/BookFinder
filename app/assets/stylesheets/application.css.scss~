@@ -12,6 +12,15 @@
  */
 @import 'bootstrap';
 $theBlue: #428BCA;
+@mixin gray-gradient {
+	background: #e2e2e2; /* Old browsers */
+	background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2e2e2), color-stop(50%,#dbdbdb), color-stop(51%,#d1d1d1), color-stop(100%,#fefefe)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* W3C */
+}
 body {	position: relative;
 }
 
@@ -97,11 +106,30 @@ body {	position: relative;
 		.title, .floor {	font-weight: 800;	font-size: 140%;
 		}
 		.map {	position: relative;
-			&.floor2 {
+			&.floor2 {	font-size: 70%;
 			}
 			img {	width: 100%;
 			}
 			.book-pointer {	color: red;	font-size: 222%;	transition: 0.2s;	position: absolute;
+			}
+		}
+	}
+}
+
+#sign-in {	width: 350px; margin: 0 auto;
+	input {	display: block;	margin-bottom: 5px;
+	}
+}
+
+#student {
+	.courses-legend {	font-size: 140%;	font-weight: 800;
+	}
+	.courses {	list-style: none;	padding: 0;
+		.course {	@include gray-gradient();	padding: 20px 10px;
+							font-size: 120%;
+			a {	color: black;
+				&:hover {	color: $theBlue;
+				}
 			}
 		}
 	}

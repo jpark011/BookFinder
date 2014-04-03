@@ -1,0 +1,17 @@
+<div class="container" id="student">
+	<h2 class="name"><%= @student.first_name %> <%= @student.last_name %></h2>
+	<p class="id">ID: <%= @student.id %></p>
+	<p class="courses-legend">Winter 2014</p>
+	<ul class="courses">
+	<% @student.courses.each do |course| %>
+		<li class="course">
+			<a href="/courses/<%= course.id %>">
+				<%= course.subject %> <%= course.number %>
+				<span class="section">
+					Section #<%= course.section %>
+				</span>
+			</a>
+		</li>
+	<% end %>
+	</ul>
+</div>

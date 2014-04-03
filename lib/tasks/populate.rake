@@ -451,6 +451,24 @@ namespace :db do
 			)
 		end
 		# custom students
+		Student.create!(
+			id: 20463482,
+			first_name: "Jay",
+			last_name: "Park",
+			year: 2,
+			term: 'A',
+			user_id: "admin",
+			password: "password"
+		)
+		Student.create!(
+			id: 20383055,
+			first_name: "Tony",
+			last_name: "Situ",
+			year: 3,
+			term: 'B',
+			user_id: "tony",
+			password: "password"
+		)
 		
 		
 		# generate sample courses
@@ -524,5 +542,14 @@ namespace :db do
 				course.books.push(Book.find(book_id))
 			end
 		end
+		
+		# assign courses to students randomly
+		Student.all.each do |student|
+			for i in 1..5
+				course_id = rand(Course.first.id..Course.last.id)
+				student.courses.push(Course.find(course_id))
+			end
+		end
+
 	end
 end
