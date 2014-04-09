@@ -36,7 +36,7 @@
 			<br /><strong>Section #:</strong><%%= shelf.section %>
 		</p>
 		<p class="floor">Floor <%%= shelf.floor %></p>
-		<div class="map"><img src="/assets/floor0<%%= shelf.floor %>.png" />
+		<div class="map floor<%%= shelf.floor %>"><img src="/assets/floor0<%%= shelf.floor %>.png" />
 			<span class="book-pointer glyphicon glyphicon-map-marker" style="top: <%%= shelf.y %>%; left: <%%= shelf.x %>%;">
 			</span>
 		</div>
@@ -57,6 +57,8 @@ function movePointer() {
 		}, 100);
 	});
 }
+
+window.onload = function () {
 
 var Book = Backbone.Model.extend({
 	defaults: {
@@ -137,6 +139,7 @@ var BookView = Backbone.View.extend({
 		});
 <% end %>
 
+}
 </script>
 
 
