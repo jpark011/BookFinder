@@ -6,7 +6,19 @@
 			<%= text_field_tag :user_id, nil, class: 'form-control', autocomplete: "off", required: "required" %>
 			<%= label_tag :password, "Password " %>
 			<%= password_field_tag :password, nil, class: 'form-control', autocomplete: "off", required: "required" %>
-			<%= submit_tag "Search", name: nil, class: "btn btn-primary", id: "search-btn" %>
+			<%= submit_tag "Sign in", name: nil, class: "btn btn-primary", id: "search-btn" %>
 		</div>
 	<% end %>
+	<div class="row divider">
+		<span class="col-md-5">
+			<hr />
+		</span>
+		<span class="col-md-2">
+			OR
+		</span>
+		<span class="col-md-5">
+			<hr />
+		</span>
+	</div>
+	<%= link_to "Search By Course", "/courses" %>
 </div>

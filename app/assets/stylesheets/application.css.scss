@@ -35,7 +35,7 @@ body {	position: relative;
 	}
 }
 
-#search {	margin: 0 auto;	width: 300px;
+#search {	margin: 0 auto;	width: 350px;
 	label {	display: block;
 	}
 	#error-msg {	color: red;
@@ -133,4 +133,8 @@ body {	position: relative;
 			}
 		}
 	}
+}
+
+.divider {	text-align: center;	margin: 0 auto;	width: 450px;
+						font-weight: 800;
 }

@@ -35,7 +35,7 @@ body {	position: relative;
 	}
 }
 
-#search {	margin: 0 auto;	width: 300px;
+#search {	margin: 0 auto;	width: 350px;
 	label {	display: block;
 	}
 	#error-msg {	color: red;
@@ -125,7 +125,7 @@ body {	position: relative;
 	.courses-legend {	font-size: 140%;	font-weight: 800;
 	}
 	.courses {	list-style: none;	padding: 0;
-		.course {	@include gray-gradient();	padding: 20px 10px;
+		.course {	@include gray-gradient;	padding: 20px 10px;
 							font-size: 120%;
 			a {	color: black;
 				&:hover {	color: $theBlue;
@@ -133,4 +133,7 @@ body {	position: relative;
 			}
 		}
 	}
+}
+
+.divider {	text-align: center;	margin: 0 auto;	width: 450px;
 }
