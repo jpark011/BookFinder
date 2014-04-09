@@ -136,4 +136,5 @@ body {	position: relative;
 }
 
 .divider {	text-align: center;	margin: 0 auto;	width: 450px;
+						font-weight: 800;
 }
