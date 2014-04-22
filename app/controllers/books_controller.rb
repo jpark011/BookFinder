@@ -9,7 +9,8 @@ class BooksController < ApplicationController
 	end
 
 	def create
-		if Book.create!(book_params)
+		@book = Book.new(book_params)
+		if @book.save
 			flash[:success] = "Book created"
       redirect_to @book
 		else
