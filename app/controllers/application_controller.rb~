@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
 	private
 		def require_sign_in
 			if  session[:std_id].nil?
-				flash[:error] = "You must be logged in to access this section"
-		    render "main/index" # halts request cycle
-			end
+			flash[:error] = "You must be logged in to access this section"
+      render "main/index" # halts request cycle
 		end
 end

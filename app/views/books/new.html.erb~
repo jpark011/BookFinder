@@ -1,0 +1,44 @@
+<div class="container">
+	<h2>Register New Book</h2>
+	<%= form_for(@book) do |b| %>
+		<div class="input-group">
+			<%= b.label :title  %>
+			<%= b.text_field :title %>
+		</div>
+		<div class="input-group">
+			<%= b.label :author %>
+			<%= b.text_field :author %>
+		</div>
+		<div class="input-group">
+			<%= b.label :publisher %>
+			<%= b.text_field :publisher %>
+		</div>
+		<div class="input-group">
+			<%= b.label :edition %>
+			<%= b.text_field :edition %>
+		</div>
+		<div class="input-group">
+			<%= b.label :price %>
+			<%= b.text_field :price %>
+		</div>
+		<div class="input-group">
+			<%= b.radio_button :required, "required" %>
+			<%= b.label :required_required, "Required" %>
+			<%= b.radio_button :required, "recommended" %>
+			<%= b.label :required_recommended, "Recommended" %>
+			<%= b.radio_button :required, "referenced" %>
+			<%= b.label :required_referenced, "Referenced" %>
+			<%= b.radio_button :required, "alternate" %>
+			<%= b.label :required_alternate, "Alternate" %>
+		</div>
+		<div class="input-group">
+			<%= b.label :shelf_id, "Shelf ID" %>
+			<%= b.text_field :shelf_id %>
+		</div>
+		<div class="input-group">
+			<%= b.label :image %>
+			<%= b.file_field :image %>
+		</div>
+    <%= b.submit "Register new book", class: "btn btn-large btn-primary" %>
+	<% end %>
+</div>

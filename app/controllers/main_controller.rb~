@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-
+	skip_before_action :require_sign_in, only: [:index, :signIn]
 	def index
 	
 	end
@@ -8,6 +8,7 @@ class MainController < ApplicationController
 		student = Student.where(user_id: params[:user_id])
 		if student.length != 0 && student.first.password == params[:password]
 			session[:std_id] = student.first.id
+			session[:std_email] = student.first.email
 			redirect_to "/student"
 		else
 			flash[:message] = "Incorrect ID/Password"
@@ -16,6 +17,7 @@ class MainController < ApplicationController
 	end
 
 	def student
-		
+		@student = Student.find(session[:std_id])
 	end
+
 end

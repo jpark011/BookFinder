@@ -135,6 +135,16 @@ body {	position: relative;
 	}
 }
 
-.divider {	text-align: center;	margin: 0 auto;	width: 450px;
+.divider {	text-align: center;	margin: 0 auto;
 						font-weight: 800;
+}
+#new_book, #edit_book {	width: 50%;	
+	input[type="submit"] {	float: right;
+	}
+}
+.book-inputs {	text-align: right;	margin-bottom: 10px;
+	input[type="file"] {	display: inline-block;
+	}
+	label {	margin-right: 10px;
+	}
 }

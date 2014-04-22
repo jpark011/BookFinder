@@ -6,6 +6,7 @@ Bookfinder::Application.routes.draw do
 		end
 	end
 	resources :books
+	resources :shelves
 	post '/students/sign-in', to: 'main#signIn'
 	get '/student', to: 'main#student'
 	root 'main#index'
