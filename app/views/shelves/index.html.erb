@@ -1,0 +1,12 @@
+<ul>
+	<% @shelves.each do |shelf| %>
+		<li>
+			<p>
+				<b>Floor <%= shelf.floor %></b> Section#<%= shelf.section %><br />
+				<%= shelf.subject %><br />
+				Shelf#<%= shelf.shelf_number %>
+			</p>
+			<%= link_to 'Edit', edit_shelf_path(shelf) %>
+		</li>
+	<% end %>
+</ul>

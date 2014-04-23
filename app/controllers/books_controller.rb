@@ -43,9 +43,9 @@ class BooksController < ApplicationController
 
 	private
 		def book_params
-      params.require(:book).permit(:title, :author, :publisher,
-                                   :edition, :price, :required, :shelf_id)
-    end
+	      params.require(:book).permit(:title, :author, :publisher,
+	                                   :edition, :price, :required, :shelf_id)
+	    end
 
 		def is_admin
 			if session[:std_user_id] != "admin"

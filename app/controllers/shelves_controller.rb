@@ -17,9 +17,9 @@ class ShelvesController < ApplicationController
 		@shelf = Shelf.new(shelf_params)
 		if @shelf.save
 			flash[:success] = "Shelf created"
-      redirect_to @shelf
+     		redirect_to @shelf
 		else
-      render 'new'
+    		render 'new'
 		end
 	end
 
@@ -31,7 +31,7 @@ class ShelvesController < ApplicationController
 		@shelf = Shelf.find(params[:id])
 		if @shelf.update_attributes(shelf_params)
 			flash[:success] = "Shelf edited"
-      redirect_to @shelf
+     		redirect_to @shelf
 		else
 			render 'edit'
 		end
@@ -41,7 +41,7 @@ class ShelvesController < ApplicationController
 		@shelf = Shelf.find(params[:id])
 		@shelf.delete
 		flash[:success] = "Shelf deleted."
-    redirect_to shelves_url
+   		redirect_to shelves_url
 	end
 
 	private
@@ -55,5 +55,4 @@ class ShelvesController < ApplicationController
 				render "main/index" # halts request cycle
 			end
 		end
-
 end

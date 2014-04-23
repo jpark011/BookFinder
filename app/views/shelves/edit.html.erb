@@ -1,0 +1,30 @@
+<div class="container">
+	<h2>Edit Shelf</h2>
+	<%= form_for(@shelf) do |s| %>
+		<div class="book-inputs">
+			<%= s.label :floor  %>
+			<%= s.text_field :floor %>
+		</div>
+		<div class="book-inputs">
+			<%= s.label :subject %>
+			<%= s.text_field :subject %>
+		</div>
+		<div class="book-inputs">
+			<%= s.label :section %>
+			<%= s.text_field :section %>
+		</div>
+		<div class="book-inputs">
+			<%= s.label :shelf_number %>
+			<%= s.text_field :shelf_number %>
+		</div>
+		<div class="book-inputs">
+			<%= s.label :x %>
+			<%= s.text_field :x %>
+		</div>
+		<div class="book-inputs">
+			<%= s.label :y %>
+			<%= s.text_field :y %>
+		</div>
+    <%= s.submit "Submit changes", class: "btn btn-large btn-primary" %>
+	<% end %>
+</div>
