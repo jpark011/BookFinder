@@ -18,11 +18,11 @@
 			<%= s.text_field :shelf_number %>
 		</div>
 		<div class="book-inputs">
-			<%= s.label :x %>
+			<%= s.label :x, "X (0 ~ 100)" %>
 			<%= s.text_field :x %>
 		</div>
 		<div class="book-inputs">
-			<%= s.label :y %>
+			<%= s.label :y, "Y (0 ~ 100)" %>
 			<%= s.text_field :y %>
 		</div>
     <%= s.submit "Submit changes", class: "btn btn-large btn-primary" %>
